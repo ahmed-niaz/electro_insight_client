@@ -1,17 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      fontFamily:{
-        outfit:["Outfit", "sans-serif"]
-      }
+      fontFamily: {
+        outfit: ["Outfit", "sans-serif"],
+      },
     },
   },
-  plugins: [
-    require('daisyui'),
-  ],
-}
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["light", "night"],
+  },
+};
