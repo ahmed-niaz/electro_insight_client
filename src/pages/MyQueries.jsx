@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import QueryTable from "../components/QueryTable";
 import useAuth from "./../hooks/useAuth";
 import toast from "react-hot-toast";
+import Banner from "../components/Banner";
 
 const MyQueries = () => {
   const { user } = useAuth();
@@ -11,7 +11,7 @@ const MyQueries = () => {
   const [quires, setQuires] = useState([]);
   useEffect(() => {
     getData();
-  }, [user]);
+  }, []);
 
   const getData = async () => {
     const { data } = await axios(
@@ -23,7 +23,7 @@ const MyQueries = () => {
   const handleDelete = async (id) => {
     try {
       const { data } = await axios.delete(
-        `${import.meta.env.VITE_API_URL}/query/${id}`
+        `${import.meta.env.VITE_API_URL}/query-id/${id}`
       );
       console.log(data);
       toast.success("Delete Successful");
@@ -35,10 +35,9 @@ const MyQueries = () => {
   };
   return (
     <main>
-      <div>
-        <Link to="/add-queries">Add Queries</Link>
-      </div>
-      <div>
+      <Banner/>
+
+      <div className="mb-16">
         <section className="container px-4 mx-auto pt-12">
           <div className="flex items-center gap-x-3">
             <h2 className="text-lg  text-black font-bold ">My Quires</h2>

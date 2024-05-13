@@ -2,8 +2,9 @@ import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import { TbListDetails } from "react-icons/tb";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 const QueryTable = ({ query, handleDelete }) => {
-  const { product_name, brand, imgURL, queries_title } = query;
+  const {_id, product_name, brand, imgURL, queries_title } = query;
 
   return (
     <tr>
@@ -34,9 +35,9 @@ const QueryTable = ({ query, handleDelete }) => {
         </button>
       </td>
       <td className="px-4 py-4  whitespace-nowrap">
-        <button>
+        <Link to={`/details/${_id}`}>
           <TbListDetails size={28} />
-        </button>
+        </Link>
       </td>
     </tr>
   );

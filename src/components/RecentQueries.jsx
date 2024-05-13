@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 const RecentQueries = ({ query }) => {
   const { imgURL, product_name, brand, queries_title, reason, user_info } =
     query;
@@ -25,12 +25,18 @@ const RecentQueries = ({ query }) => {
             <div>
               <p className="text-xl font-extrabold">
                 Reason:{" "}
-                <span className="font-bold text-gray-500">{reason}</span>
+                <span className="font-bold text-gray-500">{`${reason.substring(
+                  0,
+                  40
+                )}...`}</span>
               </p>
+
               <p className="text-xl font-extrabold">
                 {" "}
                 Query Title:{" "}
-                <span className="font-bold text-gray-500">{queries_title}</span>
+                <span className="font-bold text-gray-500">
+                  {`${queries_title.substring(0, 40)}...`}
+                </span>
               </p>
               <p className="text-xl font-extrabold">
                 Date Posted:{" "}
@@ -55,6 +61,6 @@ const RecentQueries = ({ query }) => {
   );
 };
 RecentQueries.propTypes = {
-    query: PropTypes.object
+  query: PropTypes.object,
 };
 export default RecentQueries;
