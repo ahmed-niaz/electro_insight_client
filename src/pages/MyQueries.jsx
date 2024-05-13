@@ -2,19 +2,22 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import QueryTable from "../components/QueryTable";
+import useAuth from "./../hooks/useAuth";
 
 const MyQueries = () => {
-  const { user } = useState();
+  const { user } = useAuth();
+  // console.log(user);
   const [quires, setQuires] = useState([]);
   useEffect(() => {
     getData();
   }, [user]);
 
   const getData = async () => {
-    const { data } = await axios(`${import.meta.env.VITE_API_URL}/queries`);
+    const { data } = await axios(
+      `${import.meta.env.VITE_API_URL}/query/${user.email}`
+    );
     setQuires(data);
   };
-
   return (
     <main>
       <div>
@@ -26,7 +29,7 @@ const MyQueries = () => {
             <h2 className="text-lg  text-black font-bold ">My Quires</h2>
 
             <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
-             {quires.length} Query
+              {quires.length} Query
             </span>
           </div>
 
@@ -85,9 +88,9 @@ const MyQueries = () => {
                       </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200 ">
-                     {
-                        quires.map(query=> <QueryTable key={query._id} query={query}/>)
-                     }
+                      {quires.map((query) => (
+                        <QueryTable key={query._id} query={query} />
+                      ))}
                     </tbody>
                   </table>
                 </div>

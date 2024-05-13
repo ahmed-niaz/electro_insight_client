@@ -5,11 +5,13 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import MyQueries from "../pages/MyQueries";
 import AddQueries from "../pages/AddQueries";
+import ErrorPage from "../pages/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage/>,
     children: [
       {
         index: true,
