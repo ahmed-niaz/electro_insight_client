@@ -25,7 +25,7 @@ const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "text-[#252422] bg-none text-sm font-bold"
+              ? "lg:text-[#252422] bg-none text-sm font-bold"
               : "text-sm font-bold"
           }
         >
@@ -37,7 +37,7 @@ const Navbar = () => {
           to="/about"
           className={({ isActive }) =>
             isActive
-              ? "text-[#252422] bg-none text-sm font-bold"
+              ? "lg:text-[#252422] bg-none text-sm font-bold"
               : "text-sm font-bold"
           }
         >
@@ -50,7 +50,7 @@ const Navbar = () => {
             to="/services"
             className={({ isActive }) =>
               isActive
-                ? "text-[#252422] bg-none text-sm font-bold"
+                ? "lg:text-[#252422] bg-none text-sm font-bold"
                 : "text-sm font-bold"
             }
           >
@@ -61,10 +61,10 @@ const Navbar = () => {
       {user?.email && (
         <li>
           <NavLink
-            to="/booking"
+            to="/my-queries"
             className={({ isActive }) =>
               isActive
-                ? "text-[#252422] bg-none text-sm font-bold"
+                ? "lg:text-[#252422] bg-none text-sm font-bold"
                 : "text-sm font-bold"
             }
           >
@@ -78,7 +78,7 @@ const Navbar = () => {
             to="/blog"
             className={({ isActive }) =>
               isActive
-                ? "text-[#252422] bg-none text-sm font-bold"
+                ? "lg:text-[#252422] bg-none text-sm font-bold"
                 : "text-sm font-bold"
             }
           >
@@ -111,7 +111,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow  rounded-box w-52 z"
+              className="menu menu-sm dropdown-content mt-3 bg-black text-white p-2 shadow  rounded-box w-52 z-50"
             >
               {links}
             </ul>
