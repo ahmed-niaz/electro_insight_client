@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import QueryTable from "../components/QueryTable";
 import useAuth from "./../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const MyQueries = () => {
   const { user } = useAuth();
@@ -17,6 +18,20 @@ const MyQueries = () => {
       `${import.meta.env.VITE_API_URL}/query/${user.email}`
     );
     setQuires(data);
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      const { data } = await axios.delete(
+        `${import.meta.env.VITE_API_URL}/query/${id}`
+      );
+      console.log(data);
+      toast.success("Delete Successful");
+      getData();
+    } catch (err) {
+      console.log(err.message);
+      toast.error(err.message);
+    }
   };
   return (
     <main>
@@ -89,7 +104,11 @@ const MyQueries = () => {
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200 ">
                       {quires.map((query) => (
-                        <QueryTable key={query._id} query={query} />
+                        <QueryTable
+                          key={query._id}
+                          query={query}
+                          handleDelete={handleDelete}
+                        />
                       ))}
                     </tbody>
                   </table>

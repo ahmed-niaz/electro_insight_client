@@ -1,8 +1,10 @@
 import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import { TbListDetails } from "react-icons/tb";
-const QueryTable = ({ query }) => {
+import PropTypes from "prop-types";
+const QueryTable = ({ query, handleDelete }) => {
   const { product_name, brand, imgURL, queries_title } = query;
+
   return (
     <tr>
       <td className="px-4 py-4 text-sm text-black font-bold  whitespace-nowrap">
@@ -21,17 +23,33 @@ const QueryTable = ({ query }) => {
         {brand}
       </td>
       <td className="px-4 py-4 text-sm whitespace-nowrap">{queries_title}</td>
-      <td>
-        <FaRegEdit size={28} />
+      <td className="px-4 py-4  whitespace-nowrap">
+        <button>
+          <FaRegEdit size={28} />
+        </button>
       </td>
-      <td className="px-4 py-4 text-center whitespace-nowrap">
-        <MdDeleteOutline size={28} />
+      <td className="px-4 py-4  whitespace-nowrap">
+        <button onClick={() => handleDelete(query._id)}>
+          <MdDeleteOutline size={28} />
+        </button>
       </td>
-      <td>
-        <TbListDetails size={28} />
+      <td className="px-4 py-4  whitespace-nowrap">
+        <button>
+          <TbListDetails size={28} />
+        </button>
       </td>
     </tr>
   );
 };
 
+QueryTable.propTypes = {
+  query: PropTypes.shape({
+    product_name: PropTypes.string.isRequired,
+    brand: PropTypes.string.isRequired,
+    imgURL: PropTypes.string.isRequired,
+    queries_title: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
+  }).isRequired,
+  handleDelete: PropTypes.func.isRequired,
+};
 export default QueryTable;
