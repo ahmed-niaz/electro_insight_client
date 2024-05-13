@@ -1,6 +1,7 @@
 import { FaRegUserCircle } from "react-icons/fa";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import {  useLoaderData } from "react-router-dom";
+import AddRecommendation from "./AddRecommendation";
 
 const Details = () => {
   const query = useLoaderData();
@@ -42,6 +43,7 @@ const Details = () => {
           </div>
         </div>
       </div>
+      <AddRecommendation  query={query}/>
     </main>
   );
 };
