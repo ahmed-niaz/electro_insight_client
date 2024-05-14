@@ -43,11 +43,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/add-queries",
-        element: <AddQueries />,
+        element: <ProtectedRoutes>
+          <AddQueries />
+        </ProtectedRoutes>,
       },
       {
         path:'/details/:id',
-        element:<Details/>,
+        element: <ProtectedRoutes>
+          <Details/>
+        </ProtectedRoutes>,
         loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/queries/${params.id}`)
       },{
         path:'/update-query/:id',
@@ -56,12 +60,16 @@ export const router = createBrowserRouter([
       },
       {
         path:'/my-recommendation',
-        element:<MyRec/>
+        element:<ProtectedRoutes>
+          <MyRec/>
+        </ProtectedRoutes>
         
       },
       {
         path:'/for-me',
-        element:<RecForMe/>
+        element:<ProtectedRoutes>
+          <RecForMe/>
+        </ProtectedRoutes>
       }
     ],
   },

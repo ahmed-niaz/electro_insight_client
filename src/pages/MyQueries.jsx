@@ -35,7 +35,9 @@ const MyQueries = () => {
   };
   return (
     <main>
-      <Banner/>
+      <div className="max-w-[1560px] mx-auto">
+        <Banner />
+      </div>
 
       <div className="mb-16">
         <section className="container px-4 mx-auto pt-12">

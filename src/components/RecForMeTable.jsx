@@ -1,5 +1,4 @@
 const RecForMeTable = ({ rec }) => {
-//   console.log(rec);
   const { title, rec_imgURL, rec_product, query, current_time } = rec;
   return (
     <tr>

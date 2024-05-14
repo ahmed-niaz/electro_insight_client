@@ -1,34 +1,62 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/logo/logo.png";
 import useAuth from "./../hooks/useAuth";
 import toast from "react-hot-toast";
+import axios from "axios";
+import { useEffect } from "react";
 const Login = () => {
-  const { login, loginWithGoogle } = useAuth();
-  const navigate = useNavigate()
-  const handleLogin = async(e)=>{
+  const { login, loginWithGoogle, user, loading } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
+  const from = location.state || "/";
+  const handleLogin = async (e) => {
     e.preventDefault();
     const form = e.target.value;
     const email = form.email.value;
     const password = form.password.value;
-    try{
-        await login(email,password)
-        navigate('/')
-        toast.success("Successfully Sign In🚀");
-    }catch (err) {
-        console.error(err);
-        toast.error(err?.message);
-      }
-  }
-  const handleGoogleLogin = async () => {
     try {
-      await loginWithGoogle();
+      const result = await login(email, password);
+      console.log(result);
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_URL}/jwt`,
+        {
+          email: result?.user?.email,
+        },
+        { withCredentials: true }
+      );
+      console.log(data);
+      navigate(from, { replace: true });
       toast.success("Successfully Sign In🚀");
-      navigate('/')
     } catch (err) {
       console.error(err);
       toast.error(err?.message);
     }
   };
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await loginWithGoogle();
+      console.log(result);
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_URL}/jwt`,
+        {
+          email: result?.user?.email,
+        },
+        { withCredentials: true }
+      );
+      console.log(data);
+      toast.success("Successfully Sign In🚀");
+      navigate(from, { replace: true });
+    } catch (err) {
+      console.error(err);
+      toast.error(err?.message);
+    }
+  };
+  if (user || loading) return;
   return (
     <main>
       <div className="flex justify-center items-center min-h-[calc(100vh-306px)]">

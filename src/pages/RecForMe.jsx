@@ -7,7 +7,6 @@ import RecForMeTable from "../components/RecForMeTable";
 const RecForMe = () => {
   const { user } = useAuth();
 
-  // const navigate = useNavigate();
   const [myRec, setMyRec] = useState([]);
 
   useEffect(() => {

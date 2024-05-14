@@ -1,10 +1,13 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import bg from "../assets/logo/logo.png";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const Register = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state || "/";
   const { loginWithGoogle, createUser, updateUserProfile, setUser } = useAuth();
 
   const handleRegister = async (e) => {
@@ -17,10 +20,19 @@ const Register = () => {
 
     try {
       const result = await createUser(email, pass);
+      console.log(result);
       await updateUserProfile(name, photo);
       // Optimistic UI Update
       setUser({ ...result?.user, photoURL: photo, displayName: name });
-      navigate("/");
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_URL}/jwt`,
+        {
+          email: result?.user?.email,
+        },
+        { withCredentials: true }
+      );
+      console.log(data);
+      navigate(from, { replace: true });
       toast.success("Registration Successful");
     } catch (err) {
       console.log(err);
@@ -30,9 +42,18 @@ const Register = () => {
 
   const handleGoogleLogin = async () => {
     try {
-      await loginWithGoogle();
+      const result = await loginWithGoogle();
+      console.log(result);
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_URL}/jwt`,
+        {
+          email: result?.user?.email,
+        },
+        { withCredentials: true }
+      );
+      console.log(data);
       toast.success("Successfully Sign In🚀");
-      navigate("/");
+      navigate(from, { replace: true });
     } catch (err) {
       console.error(err);
       toast.error(err?.message);
