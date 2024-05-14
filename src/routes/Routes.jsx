@@ -7,6 +7,8 @@ import MyQueries from "../pages/MyQueries";
 import AddQueries from "../pages/AddQueries";
 import ErrorPage from "../pages/ErrorPage";
 import Details from "../pages/Details";
+import Queries from "../pages/Queries";
+import QueryUpdate from "../components/QueryUpdate";
 
 export const router = createBrowserRouter([
   {
@@ -31,12 +33,20 @@ export const router = createBrowserRouter([
         element: <MyQueries />,
       },
       {
+        path:'/queries',
+        element:<Queries/>
+      },
+      {
         path: "/add-queries",
         element: <AddQueries />,
       },
       {
         path:'/details/:id',
         element:<Details/>,
+        loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/queries/${params.id}`)
+      },{
+        path:'/update-query/:id',
+        element:<QueryUpdate/>,
         loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/queries/${params.id}`)
       }
     ],

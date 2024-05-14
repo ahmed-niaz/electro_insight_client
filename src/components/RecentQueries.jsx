@@ -1,17 +1,17 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 const RecentQueries = ({ query }) => {
-  const { imgURL, product_name, brand, queries_title, reason, user_info } =
+  const {_id, imgURL, product_name, brand, queries_title, reason, user_info } =
     query;
-  //   console.log(user_info);
   return (
     <main>
-      <div className="flex flex-col items-center justify-center w-full mx-auto ">
+      <Link to={`/details/${_id}`} className="flex flex-col items-center justify-center w-full mx-auto ">
         <div
           className="w-full h-[400px] bg-gray-300 bg-center bg-cover rounded-lg shadow-md"
           style={{ backgroundImage: `url(${imgURL})` }}
         ></div>
 
-        <div className="w-11/12 border-2 border-red-500 -mt-10 overflow-hidden  rounded-lg shadow-lg dark:bg-white">
+        <div className="w-11/12 border-4 border-black -mt-10 overflow-hidden  rounded-lg shadow-lg dark:bg-white">
           <div className="flex justify-center items-center gap-2">
             <h3 className="py-2 font-bold tracking-wide text-center text-black uppercase dark:text-black">
               {product_name}
@@ -56,7 +56,7 @@ const RecentQueries = ({ query }) => {
             </div>
           </div>
         </div>
-      </div>
+      </Link>
     </main>
   );
 };

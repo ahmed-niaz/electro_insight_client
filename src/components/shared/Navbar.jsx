@@ -34,7 +34,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/about"
+          to="/queries"
           className={({ isActive }) =>
             isActive
               ? "lg:text-[#252422] bg-none text-sm font-bold"
@@ -47,7 +47,7 @@ const Navbar = () => {
       {user?.email && (
         <li>
           <NavLink
-            to="/services"
+            to="/recommendation-for-me"
             className={({ isActive }) =>
               isActive
                 ? "lg:text-[#252422] bg-none text-sm font-bold"
@@ -75,7 +75,7 @@ const Navbar = () => {
       {user?.email && (
         <li>
           <NavLink
-            to="/blog"
+            to="/my-recommendation"
             className={({ isActive }) =>
               isActive
                 ? "lg:text-[#252422] bg-none text-sm font-bold"
