@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 
-const TotalQuery = ({query}) => {
+const GridLayout = ({query}) => {
     const {_id, imgURL, product_name, brand, queries_title, reason, user_info } =
     query;
     return (
@@ -62,4 +62,4 @@ const TotalQuery = ({query}) => {
     );
 };
 
-export default TotalQuery;
+export default GridLayout;

@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -15,13 +14,13 @@ const RecForMe = () => {
 
   const getData = async () => {
     const { data } = await axios(
-      `${import.meta.env.VITE_API_URL}/recForMe/${user.email}`
+      `${import.meta.env.VITE_API_URL}/recForMe/${user.email}`,{withCredentials:true}
     );
 
     setMyRec(data);
   };
 
-  console.log(myRec);
+
 
   return (
     <div className="mb-16">

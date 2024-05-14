@@ -4,24 +4,24 @@ import axios from "axios";
 import MyRecTable from "../components/MyRecTable";
 import { useNavigate } from "react-router-dom";
 
-
 const MyRec = () => {
   const { user } = useAuth();
-  
+
   const navigate = useNavigate();
   const [myRec, setMyRec] = useState([]);
- 
+
   useEffect(() => {
     getData();
   }, []);
 
   const getData = async () => {
     const { data } = await axios(
-      `${import.meta.env.VITE_API_URL}/my-rec/${user.email}`
+      `${import.meta.env.VITE_API_URL}/my-rec/${user.email}`,
+      { withCredentials: true }
     );
 
     setMyRec(data);
-    navigate('/my-recommendation')
+    navigate("/my-recommendation");
   };
 
   // console.log(myRec);
