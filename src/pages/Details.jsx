@@ -1,6 +1,7 @@
 import { FaRegUserCircle } from "react-icons/fa";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import {  useLoaderData } from "react-router-dom";
+import AddRecommendation from "../components/AddRecommendation";
 
 
 const Details = () => {
@@ -43,6 +44,7 @@ const Details = () => {
           </div>
         </div>
       </div>
+      <AddRecommendation query={query} user_info={user_info.email}/>
     </main>
   );
 };

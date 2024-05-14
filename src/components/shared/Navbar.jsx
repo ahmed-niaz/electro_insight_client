@@ -47,7 +47,7 @@ const Navbar = () => {
       {user?.email && (
         <li>
           <NavLink
-            to="/recommendation-for-me"
+            to="/for-me"
             className={({ isActive }) =>
               isActive
                 ? "lg:text-[#252422] bg-none text-sm font-bold"

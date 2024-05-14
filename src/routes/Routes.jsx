@@ -9,6 +9,9 @@ import ErrorPage from "../pages/ErrorPage";
 import Details from "../pages/Details";
 import Queries from "../pages/Queries";
 import QueryUpdate from "../components/QueryUpdate";
+import ProtectedRoutes from "./ProtectedRoutes";
+import MyRec from "../pages/MyRec";
+import RecForMe from "../pages/RecForMe";
 
 export const router = createBrowserRouter([
   {
@@ -30,7 +33,9 @@ export const router = createBrowserRouter([
       },
       {
         path: "/my-queries",
-        element: <MyQueries />,
+        element: <ProtectedRoutes>
+          <MyQueries />
+        </ProtectedRoutes>,
       },
       {
         path:'/queries',
@@ -48,6 +53,15 @@ export const router = createBrowserRouter([
         path:'/update-query/:id',
         element:<QueryUpdate/>,
         loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/queries/${params.id}`)
+      },
+      {
+        path:'/my-recommendation',
+        element:<MyRec/>
+        
+      },
+      {
+        path:'/for-me',
+        element:<RecForMe/>
       }
     ],
   },

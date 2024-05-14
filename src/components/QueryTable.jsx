@@ -4,7 +4,7 @@ import { TbListDetails } from "react-icons/tb";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 const QueryTable = ({ query, handleDelete }) => {
-  const {_id, product_name, brand, imgURL, queries_title } = query;
+  const {_id, product_name, brand, imgURL, queries_title,user_info } = query;
 
   return (
     <tr>
@@ -24,6 +24,7 @@ const QueryTable = ({ query, handleDelete }) => {
         {brand}
       </td>
       <td className="px-4 py-4 text-sm whitespace-nowrap">{queries_title}</td>
+      <td className="px-4 py-4 text-sm whitespace-nowrap"> {new Date(user_info.current_time).toDateString()}</td>
       <td  className="px-4 py-4  whitespace-nowrap">
         <Link to={`/update-query/${_id}`}>
           <FaRegEdit size={28} />

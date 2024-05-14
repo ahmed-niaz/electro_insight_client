@@ -1,11 +1,9 @@
-import RiseLoader from './../../node_modules/react-spinners/esm/RiseLoader';
-
 const Loader = () => {
-    return (
-       <main className='min-h-screen flex items-center justify-center'>
-      <RiseLoader color="#0e0e0e" />
-       </main>
-    );
+  return (
+    <main className="min-h-screen flex items-center justify-center">
+      <span className="loading loading-ring loading-lg"></span>
+    </main>
+  );
 };
 
 export default Loader;

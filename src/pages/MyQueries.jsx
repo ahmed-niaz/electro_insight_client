@@ -85,7 +85,12 @@ const MyQueries = () => {
                         >
                           Query Title
                         </th>
-
+                        <th
+                          scope="col"
+                          className="px-4 py-3.5 text-sm  text-left rtl:text-right text-white font-bold"
+                        >
+                          Timestamp
+                        </th>
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-sm  text-left rtl:text-right text-white font-bold"
