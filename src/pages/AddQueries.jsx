@@ -38,7 +38,7 @@ const AddQueries = () => {
 
     try {
       const { data } = await axios.post(
-        `http://localhost:3000/add-query`,
+        `${import.meta.env.VITE_API_URL}/add-query`,
         queryData
       );
       console.log(data);

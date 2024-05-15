@@ -3,9 +3,10 @@ import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const AddRecommendation = ({ query, user_info }) => {
+
+const AddRecommendation = ({ query, user_info}) => {
   const { user } = useAuth();
-  console.log(user, user_info);
+  // console.log(user, user_info);
   const navigate = useNavigate();
   const handleSubmission = async (e) => {
     e.preventDefault();
@@ -47,6 +48,8 @@ const AddRecommendation = ({ query, user_info }) => {
       toast.error(err.message);
     }
   };
+
+
   return (
     <main>
       <div className="flex justify-center items-center my-12 ">

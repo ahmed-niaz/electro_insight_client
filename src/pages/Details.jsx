@@ -6,8 +6,9 @@ import AddRecommendation from "../components/AddRecommendation";
 
 const Details = () => {
   const query = useLoaderData();
-  const { product_name, imgURL, brand, queries_title, reason, user_info } =
+  const {_id, product_name, imgURL, brand, queries_title, reason, user_info } =
     query;
+
   return (
     <main>
       <div

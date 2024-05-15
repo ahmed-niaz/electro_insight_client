@@ -1,5 +1,7 @@
+
 const MyRecTable = ({ rec }) => {
   const { title, rec_imgURL, rec_product, query, current_time } = rec;
+ 
   return (
     <tr>
       <td className="px-4 py-4 text-sm text-black font-bold  whitespace-nowrap">

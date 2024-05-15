@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 const RecentQueries = ({ query }) => {
+ 
   const {_id, imgURL, product_name, brand, queries_title, reason, user_info } =
     query;
+  
   return (
     <main>
       <Link to={`/details/${_id}`} className="flex flex-col items-center justify-center w-full mx-auto ">

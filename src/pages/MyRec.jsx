@@ -92,7 +92,7 @@ const MyRec = () => {
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200 ">
                     {myRec.map((rec) => (
-                      <MyRecTable key={rec._id} rec={rec} />
+                      <MyRecTable key={rec._id} rec={rec} recommendationID = {rec._id}/>
                     ))}
                   </tbody>
                 </table>
