@@ -3,6 +3,7 @@ import Slider from "../components/Slider";
 import axios from "axios";
 import RecentQueries from "../components/RecentQueries";
 import QA from "../components/QA";
+import Reviews from "../components/Reviews";
 const Home = () => {
   const { user } = useState();
   const [recentQuires, setRecentQuires] = useState([]);
@@ -28,6 +29,10 @@ const Home = () => {
       <div className="mb-24 container mx-auto">
         <QA/>
       </div>
+      <div className="bg-black py-10">
+        <Reviews />
+      </div>
+
     </main>
   );
 };

@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 const ColumnLayout = ({ query }) => {
   const { _id, imgURL, product_name, brand, queries_title, reason, user_info } =
@@ -25,6 +25,12 @@ const ColumnLayout = ({ query }) => {
         {" "}
         {new Date(user_info.current_time).toDateString()}
       </td>
+
+      <Link to={`/details/${_id}`}>
+        <td className="px-4 py-4 text-sm text-black font-bold  whitespace-nowrap">
+          Details
+        </td>
+      </Link>
     </tr>
   );
 };

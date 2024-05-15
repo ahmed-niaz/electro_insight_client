@@ -30,7 +30,7 @@ const Login = () => {
         { withCredentials: true }
       );
       console.log(data);
-      navigate(from, { replace: true });
+      navigate(from);
       toast.success("Successfully Sign In🚀");
     } catch (err) {
       console.error(err);
@@ -50,7 +50,7 @@ const Login = () => {
       );
       console.log(data);
       toast.success("Successfully Sign In🚀");
-      navigate(from, { replace: true });
+      navigate(from);
     } catch (err) {
       console.error(err);
       toast.error(err?.message);
