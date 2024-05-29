@@ -5,6 +5,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import slider_1 from '../assets/slider/slider-1.jpg'
 import slider_2 from '../assets/slider/slider-2.jpg'
 import slider_3 from '../assets/slider/slider-3.jpg'
+import { Link } from "react-router-dom";
 const Slider = () => {
   return (
     <main className="container mx-auto mt-20">
@@ -32,12 +33,12 @@ const Slider = () => {
                 Personalized Auto Picks Inside
                 </h1>
                 <div className="flex gap-6  m-0 lg:ml-16 justify-center lg:justify-start">
-                  <button className="btn glass bg-[#0000] text-white">
+                  <Link to='/suggest-more' className="btn glass bg-[#0000] text-white">
                     Suggest More
-                  </button>
-                  <button className="btn hover:glass btn-outline font-bold hover:bg-[#0000] bg-none border-[#0000] text-white ">
+                  </Link>
+                  <Link to='/queries' className="btn hover:glass btn-outline font-bold hover:bg-[#0000] bg-none border-[#0000] text-white ">
                    Queries
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -54,12 +55,12 @@ const Slider = () => {
                 Effortless Auto Enhancements Await
                 </h1>
                 <div className="flex gap-6  m-0 lg:ml-16 justify-center lg:justify-start">
-                  <button className="btn glass bg-[#0000] text-white">
+                  <Link to='/suggest-more' className="btn glass bg-[#0000] text-white">
                     Suggest More
-                  </button>
-                  <button className="btn hover:glass btn-outline font-bold hover:bg-[#0000] bg-none border-[#0000] text-white ">
+                  </Link>
+                  <Link to='/queries' className="btn hover:glass btn-outline font-bold hover:bg-[#0000] bg-none border-[#0000] text-white ">
                    Queries
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -77,12 +78,12 @@ const Slider = () => {
                 Navigate Your Options, Find Your Perfect Fit
                 </h1>
                 <div className="flex gap-6  m-0 lg:ml-16 justify-center lg:justify-start">
-                  <button className="btn glass bg-[#0000] text-white">
+                  <Link to='/suggest-more' className="btn glass bg-[#0000] text-white">
                     Suggest More
-                  </button>
-                  <button className="btn hover:glass btn-outline font-bold hover:bg-[#0000] bg-none border-[#0000] text-white ">
+                  </Link>
+                  <Link to='/queries' className="btn hover:glass btn-outline font-bold hover:bg-[#0000] bg-none border-[#0000] text-white ">
                    Queries
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

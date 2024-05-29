@@ -12,6 +12,7 @@ import QueryUpdate from "../components/QueryUpdate";
 import ProtectedRoutes from "./ProtectedRoutes";
 import MyRec from "../pages/MyRec";
 import RecForMe from "../pages/RecForMe";
+import Suggestion from "../pages/Suggestion";
 
 export const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ export const router = createBrowserRouter([
         element:<ProtectedRoutes>
           <RecForMe/>
         </ProtectedRoutes>
+      },
+      {
+        path:'/suggest-more',
+        element:<Suggestion/>
       }
     ],
   },
